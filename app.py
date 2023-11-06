@@ -55,6 +55,7 @@ def adicionar_despesa():
         banco.inserirDespesa(descricao, data, valor, id_condicao, id_status)
         return redirect(url_for('index'))
 
+
 """# Página para adicionar novo usuário
 @app.route('/add', methods=['POST'])
 def add():

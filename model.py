@@ -279,7 +279,7 @@ class AppBD():
                 self.connection.close()
                 print('A conexão com o banco de dados foi fechada')
 
-    def deletarStatus(self, status_id):
+    def deletarStatus(self,status_id):
         self.abrirConexao()
         delete_query = "DELETE FROM status WHERE id = ?"
         try:
@@ -288,7 +288,7 @@ class AppBD():
             self.connection.commit()
             print('Status deletado com sucesso')
         except sqlite3.Error as error:
-            print("Falha ao deletar status")
+            print(error)
         finally:
             if self.connection:
                 cursor.close()
