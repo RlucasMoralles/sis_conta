@@ -11,7 +11,7 @@ banco.criarTabelas()
 
 #inserir condições padrão
 descricao_condicoes = ["Pix", "Dinheiro", "Boleto Bancário", "Cartão de Crédito", "Cartão de Débito"]
-banco.inserirCondicoesPadrao(descricao_condicoes)
+banco.inserirCondicoesPadrao(descricao_condicoes)#israel melo
 
 #inserir condições padrão
 descricao_Status = ["Receita", "Receita Pendente", "Despesas Paga", "Despesas Pendente"]
