@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicoes</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Condições e Status</h1>
+    <h2>Condições:</h2>
+    <ul>
+        {% for condicao in condicoes %}
+            <li>{{ condicao[0] }} - {{ condicao[1] }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Adicionar Nova Condição:</h2>
+    <form action="/adicionar_condicao" method="post">
+        <label for="nova_condicao">Nova Condição:</label>
+        <input type="text" id="nova_condicao" name="nova_condicao" required><br>
+        <input type="submit" value="Adicionar">
+    </form>
+    <h2>Status:</h2>
+    <ul>
+        {% for stat in status %}
+            <li>{{ stat[0] }} - {{ stat[1] }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Adicionar Novo Status:</h2>
+    <form action="/adicionar_status" method="post">
+        <label for="novo_status">Novo Status:</label>
+        <input type="text" id="novo_status" name="novo_status" required><br>
+        <input type="submit" value="Adicionar">
+    </form>
+    <h1>Lista de Despesas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Condição</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for despesa in despesas %}
+                <tr>
+                    <td>{{ despesa[0] }}</td>
+                    <td>{{ despesa[1] }}</td>
+                    <td>{{ despesa[2] }}</td>
+                    <td>{{ despesa[3] }}</td>
+                    <td>{{ despesa[4] }}</td>
+                    <td>{{ despesa[5] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Adicionar Nova Despesa:</h2>
+    <form action="/adicionar_despesa" method="post">
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required><br>
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required><br>
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" required><br>
+        <label for="condicao">Condição:</label>
+        <select id="condicao" name="condicao">
+            {% for condicao in condicoes %}
+                <option value="{{ condicao[1] }}">{{ condicao[1] }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            {% for stat in status %}
+                <option value="{{ stat[1] }}">{{ stat[1] }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Adicionar">
+    </form>
+</body>
+</body>
+</html>
