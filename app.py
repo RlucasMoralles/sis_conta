@@ -4,6 +4,7 @@ from model import AppBD
 
 app = Flask(__name__)
 
+
 banco = AppBD()
 banco.criarTabelas()
 # Dados para inserir na tabela codicoes
