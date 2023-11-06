@@ -6,50 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Condicoes</title>
     <style>
-        table {
-            width: 50%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+       body{margin: 0;
+  border: 0;
+  background-color: antiquewhite;}
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #f2f2f2;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.titulo {padding-left: 10%;
+        margin-top: 10px;
+        border-top: 2px #381111 solid;}
+        
+.lista{margin-left: 10%;
+        margin-top: 10px;
+        margin-bottom: 10px;}
+.botao {margin-left: 90px;}
+.mesa{ margin-left: 10%;}
+.forma{margin-left: 10%;}
+.labo{margin-bottom: 10px;}
+#inserir{ margin-left: 33px;}
+#inserir-v{ margin-left: 28px;}
+#inserir-s{ margin-left: 22px;}
+#labo{margin-bottom: 20px;}
     </style>
 </head>
 <body>
-    <h1>Lista de Condições e Status</h1>
-    <h2>Condições:</h2>
-    <ul>
+    <h1 class="titulo">Lista de Condições e Status</h1>
+    <h2 class="titulo">Condições:</h2>
+    <ul class="lista">
         {% for condicao in condicoes %}
             <li>{{ condicao[0] }} - {{ condicao[1] }}</li>
         {% endfor %}
     </ul>
-    <h2>Adicionar Nova Condição:</h2>
-    <form action="/adicionar_condicao" method="post">
+    <h2 class="titulo">Adicionar Nova Condição:</h2>
+    <form class="forma" action="/adicionar_condicao" method="post">
         <label for="nova_condicao">Nova Condição:</label>
         <input type="text" id="nova_condicao" name="nova_condicao" required><br>
         <input type="submit" value="Adicionar">
     </form>
-    <h2>Status:</h2>
-    <ul>
+    <h2 class="titulo">Status:</h2>
+    <ul class="lista">
         {% for stat in status %}
             <li>{{ stat[0] }} - {{ stat[1] }}</li>
         {% endfor %}
     </ul>
-    <h2>Adicionar Novo Status:</h2>
-    <form action="/adicionar_status" method="post">
+    <h2 class="titulo">Adicionar Novo Status:</h2>
+    <form class="forma" action="/adicionar_status" method="post">
         <label for="novo_status">Novo Status:</label>
-        <input type="text" id="novo_status" name="novo_status" required><br>
-        <input type="submit" value="Adicionar">
+        <input class="labo" type="text" id="novo_status" name="novo_status" required><br>
+        <input class="botao" type="submit" value="Adicionar">
     </form>
-    <h1>Lista de Despesas</h1>
-    <table>
-        <thead>
+    <h1 class="titulo">Lista de Despesas</h1>
+    <table class="mesa">
+        <thead id="tabela">
             <tr>
                 <th>ID</th>
                 <th>Descrição</th>
@@ -72,27 +91,27 @@
             {% endfor %}
         </tbody>
     </table>
-    <h2>Adicionar Nova Despesa:</h2>
-    <form action="/adicionar_despesa" method="post">
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required><br>
-        <label for="data">Data:</label>
-        <input type="date" id="data" name="data" required><br>
-        <label for="valor">Valor:</label>
-        <input type="number" id="valor" name="valor" required><br>
-        <label for="condicao">Condição:</label>
-        <select id="condicao" name="condicao">
+    <h2 class="titulo">Adicionar Nova Despesa:</h2>
+    <form class="forma" action="/adicionar_despesa" method="post">
+        <label class="labo" for="descricao">Descrição:</label>
+        <input class="labo" id="" type="text" id="descricao" name="descricao" required><br>
+        <label class="labo" for="data">Data:</label>
+        <input class="labo" id="inserir" type="date" id="data" name="data" required><br>
+        <label class="labo" for="valor">Valor:</label>
+        <input class="labo" id="inserir-v"type="number" id="valor" name="valor" required><br>
+        <label class="labo" for="condicao">Condição:</label>
+        <select class="labo" id="condicao" name="condicao">
             {% for condicao in condicoes %}
                 <option value="{{ condicao[1] }}">{{ condicao[1] }}</option>
             {% endfor %}
-        </select><br>
-        <label for="status">Status:</label>
-        <select id="status" name="status">
+        </select ><br>
+        <label class="labo" for="status">Status:</label>
+        <select class="labo" id="inserir-s" id="status" name="status">
             {% for stat in status %}
                 <option value="{{ stat[1] }}">{{ stat[1] }}</option>
             {% endfor %}
         </select><br>
-        <input type="submit" value="Adicionar">
+        <input class="botao" id="labo" type="submit" value="Adicionar">
     </form>
 </body>
 </body>
