@@ -56,6 +56,12 @@ def adicionar_despesa():
         return redirect(url_for('index'))
 
 
+@app.route('/deletar_despesa/<int:despesa_id>')
+def deletar_despesa(despesa_id):
+    banco.deletarDespesa(despesa_id)
+    return redirect(url_for('index'))
+
+
 """# Página para adicionar novo usuário
 @app.route('/add', methods=['POST'])
 def add():
