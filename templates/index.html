@@ -76,6 +76,7 @@ th {
                 <th>Valor</th>
                 <th>Condição</th>
                 <th>Status</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -87,6 +88,7 @@ th {
                     <td>{{ despesa[3] }}</td>
                     <td>{{ despesa[4] }}</td>
                     <td>{{ despesa[5] }}</td>
+                    <td><a href="/deletar_despesa/{{ despesa[0] }}">Excluir</a></td>
                 </tr>
             {% endfor %}
         </tbody>
